@@ -24,3 +24,4 @@ catalog.xml
 /build
 /vendor
 composer.phar
+phpunit.xml

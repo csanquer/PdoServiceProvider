@@ -22,6 +22,7 @@ class PDOServiceProvider implements ServiceProviderInterface
             'port' => null,
             'user' => 'root',
             'password' => null,
+            'charset' => '',
         );
 
         $app['pdo.dbs.options.initializer'] = $app->protect(function () use ($app) {

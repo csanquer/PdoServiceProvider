@@ -14,14 +14,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "silex/silex": "~1.1"
+        "silex/silex": "~1.1",
+        "symfony/options-resolver": "~2.3"
     },
     "require-dev": {
         "phpunit/phpunit": "~3.7"
     },
     "autoload": {
-        "psr-0": {
-            "CSanquer\\Silex\\PdoServiceProvider\\": "lib"
-        }
+        "psr-0": { "CSanquer": "lib/" }
     }
 }
