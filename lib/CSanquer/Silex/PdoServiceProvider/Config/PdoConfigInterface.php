@@ -19,9 +19,8 @@ interface PdoConfigInterface
     /**
      * 
      * @param array $params
-     * @param array $options
      * 
      * @return \PDO
      */
-    public function connect(array $params, array $options = array());
+    public function connect(array $params);
 }

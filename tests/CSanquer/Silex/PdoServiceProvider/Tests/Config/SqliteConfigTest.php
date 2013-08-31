@@ -40,6 +40,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 ),
                 array(
                     'dsn' => 'sqlite::memory:',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -48,6 +49,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 ),
                 array(
                     'dsn' => 'sqlite::memory:',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -56,8 +58,33 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 ),
                 array(
                     'dsn' => 'sqlite:var/db/db.sq3',
+                    'options' => array(),
                 ),
             ),
         );
     }
+    
+    /**
+     * @dataProvider dataProviderConnect
+     */
+    public function testConnect($params)
+    {
+        if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
+            $this->markTestSkipped('pdo_sqlite is not available');
+        }
+        
+        $pdo = $this->pdoConfig->connect($params);
+        $this->assertInstanceOf('\PDO', $pdo);
+    }
+    
+    public function dataProviderConnect()
+    {
+        return array(
+            array(
+                array(
+                ),
+            ),
+        );
+    }
+                
 }

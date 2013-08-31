@@ -20,6 +20,8 @@ class SqliteConfig extends PdoConfig
     );
     
     protected $allowedTypes = array(
+        'driver' => array('string'),
+        'options' => array('array', 'null'),
         'path' => array('string', 'null'),
     ); 
     

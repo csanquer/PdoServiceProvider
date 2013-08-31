@@ -48,11 +48,8 @@ abstract class PdoConfig implements PdoConfigInterface
      * @var array
      */
     protected $required = array(
-        'host',
-        'port',
         'dbname',
         'user',
-        'password',
     );
     
     /**
@@ -75,6 +72,20 @@ abstract class PdoConfig implements PdoConfigInterface
     
     public function __construct()
     {
+        $this->allowedTypes = array_merge(array(
+            'driver' => array('string'),
+            'options' => array('array', 'null'),
+        ), $this->allowedTypes);
+        
+        $this->allowedValues = array_merge(array(
+            'driver' => array($this->driver),
+        ), $this->allowedValues);
+        
+        $this->defaults = array_merge(array(
+            'driver' => $this->driver,
+            'options' => array(),
+        ), $this->defaults);
+        
         $this->resolver = new OptionsResolver();
         $this->resolver
             ->setRequired($this->required)
@@ -90,13 +101,16 @@ abstract class PdoConfig implements PdoConfigInterface
      */
     protected function constructDSN(array $params)
     {
+        $driver = $params['driver'];
+        unset($params['driver']);
+        
         $dsnParams = array();
         foreach ($params as $key => $value) {
             if ($value != null && $value != '') {
                 $dsnParams[] = $key.'='.$value;
             }
         }
-        return $this->driver.':'.implode(';', $dsnParams);
+        return $driver.':'.implode(';', $dsnParams);
     }
     
     /**
@@ -117,6 +131,11 @@ abstract class PdoConfig implements PdoConfigInterface
         $params = $this->resolve($params);
         $preparedParams = array();
         
+        if (isset($params['options'])) {
+            $preparedParams['options'] = $params['options'];
+            unset($params['options']);
+        }
+        
         if (isset($params['user'])) {
             $preparedParams['user'] = $params['user'];
             unset($params['user']);
@@ -134,13 +153,17 @@ abstract class PdoConfig implements PdoConfigInterface
     /**
      * 
      * @param array $params
-     * @param array $options
      * 
      * @return \PDO
      */
-    public function connect(array $params, array $options = array()) 
+    public function connect(array $params) 
     {
         $params = $this->prepareParameters($params);
-        return new \PDO($params['dsn'], $params['user'], $params['password'], $options);
+        return new \PDO(
+            $params['dsn'], 
+            isset($params['user']) ? $params['user'] : null, 
+            isset($params['password']) ? $params['password'] : null, 
+            $params['options']
+        );
     }
 }

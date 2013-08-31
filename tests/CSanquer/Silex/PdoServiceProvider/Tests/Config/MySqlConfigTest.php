@@ -45,6 +45,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'mysql:host=localhost;port=3306;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -59,9 +60,23 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'mysql:host=127.0.0.1;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
-            
+            array(
+                array(
+                    'unix_socket' => '/var/run/mysqld/mysqld.sock',
+                    'dbname' => 'fake-db',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                ),
+                array(
+                    'dsn' => 'mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=fake-db',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                    'options' => array(),
+                ),
+            ),
         );
     }
 }

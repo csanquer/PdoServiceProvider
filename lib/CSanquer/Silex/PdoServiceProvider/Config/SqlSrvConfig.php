@@ -11,22 +11,15 @@ class SqlSrvConfig extends PdoConfig
 {
     protected $driver = 'sqlsrv';
     
-    protected $required = array(
-        'host',
-        'port',
-        'dbname',
-        'user',
-        'password',
-    );
-    
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 1433,
         'MultipleActiveResultSets' => null,
+        'password' => null,
     );
     
     protected $allowedTypes = array(
-        'host' => array('string', 'null'),
+        'host' => array('string'),
         'port' => array('integer', 'null'),
         'dbname' => array('string'),
         'user' => array('string'),

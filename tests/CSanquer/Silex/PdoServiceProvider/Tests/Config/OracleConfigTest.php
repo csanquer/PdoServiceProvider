@@ -45,6 +45,7 @@ class OracleConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'oci:dbname=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SID=fake-db)))',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -59,6 +60,23 @@ class OracleConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'oci:dbname=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SID=fake-db)))',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
+                ),
+            ),
+            array(
+                array(
+                    'host' => '127.0.0.1',
+                    'service' => true,
+                    'port' => 1522,
+                    'dbname' => 'fake-db',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                ),
+                array(
+                    'dsn' => 'oci:dbname=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1522)))(CONNECT_DATA=(SERVICE_NAME=fake-db)))',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
         );

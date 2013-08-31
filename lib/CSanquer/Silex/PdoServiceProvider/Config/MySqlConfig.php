@@ -11,23 +11,16 @@ class MySqlConfig extends PdoConfig
 {
     protected $driver = 'mysql';
     
-    protected $required = array(
-        'host',
-        'port',
-        'dbname',
-        'user',
-        'password',
-    );
-    
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 3306,
         'charset' => null,
         'unix_socket' => null,
+        'password' => null,
     );
     
     protected $allowedTypes = array(
-        'host' => array('string', 'null'),
+        'host' => array('string'),
         'port' => array('integer', 'null'),
         'dbname' => array('string'),
         'user' => array('string'),

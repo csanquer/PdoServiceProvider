@@ -45,6 +45,7 @@ class PgSqlConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'pgsql:host=localhost;port=5432;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -59,6 +60,7 @@ class PgSqlConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'pgsql:host=127.0.0.1;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
         );

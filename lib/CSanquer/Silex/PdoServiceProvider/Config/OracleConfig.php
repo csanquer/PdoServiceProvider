@@ -11,27 +11,22 @@ class OracleConfig extends PdoConfig
 {
     protected $driver = 'oci';
     
-    protected $required = array(
-        'dbname',
-        'user',
-        'password',
-    );
-    
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 1521,
         'service' => null,
         'charset' => null,
+        'password' => null,
     );
     
     protected $allowedTypes = array(
-        'host' => array('string', 'null'),
+        'host' => array('string'),
         'port' => array('integer', 'null'),
         'dbname' => array('string'),
         'user' => array('string'),
         'password' => array('string', 'null'),
-        'service' => array('boolean', 'null'),
-        'charset' => array('string', 'null'),
+        'service' => array('bool', 'null'),
+        'charset' => array('string', 'null'),        
     );    
     
     protected function resolve(array $params)

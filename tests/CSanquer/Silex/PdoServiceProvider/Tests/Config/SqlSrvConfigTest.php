@@ -45,6 +45,7 @@ class SqlSrvConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'sqlsrv:port=1433;dbname=fake-db;server=localhost',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
             array(
@@ -59,6 +60,7 @@ class SqlSrvConfigTest extends \PHPUnit_Framework_TestCase
                     'dsn' => 'sqlsrv:dbname=fake-db;server=127.0.0.1',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
+                    'options' => array(),
                 ),
             ),
         );
