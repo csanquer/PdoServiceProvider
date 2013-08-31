@@ -23,8 +23,8 @@ class SqliteConfig extends PdoConfig
         'path' => array('string', 'null'),
     ); 
     
-    protected function constructDSN()
+    protected function constructDSN(array $params)
     {
-        return $this->driver.':'.($this->dsnParams['path'] == 'memory' || empty($this->dsnParams['path'])? ':memory:' : $this->dsnParams['path']);
+        return $this->driver.':'.($params['path'] == 'memory' || empty($params['path'])? ':memory:' : $params['path']);
     }
 }

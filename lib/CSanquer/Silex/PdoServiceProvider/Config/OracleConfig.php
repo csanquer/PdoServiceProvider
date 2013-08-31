@@ -18,9 +18,10 @@ class OracleConfig extends PdoConfig
     );
     
     protected $defaults = array(
-        'host' => null,
+        'host' => 'localhost',
         'port' => 1521,
         'service' => null,
+        'charset' => null,
     );
     
     protected $allowedTypes = array(
@@ -38,7 +39,7 @@ class OracleConfig extends PdoConfig
         $params = parent::resolve($params);
         
         if (isset($params['host']) && $params['host'] != null) {
-            $dbname .= '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)' .
+            $dbname = '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)' .
                    '(HOST=' . $params['host'] . ')';
 
             if (isset($params['port'])) {

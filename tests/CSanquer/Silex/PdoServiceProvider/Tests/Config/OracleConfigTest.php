@@ -2,15 +2,16 @@
 
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
+use CSanquer\Silex\PdoServiceProvider\Config\OracleConfig;
 use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
- * TestCase for MySqlConfig
+ * TestCase for OracleConfig
  *
  * @author Charles Sanquer <charles.sanquer@gmail.com>
  *
  */
-class MySqlConfigTest extends \PHPUnit_Framework_TestCase
+class OracleConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var PdoConfig
@@ -19,7 +20,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->pdoConfig = new \CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig();
+        $this->pdoConfig = new OracleConfig();
     }
 
     /**
@@ -41,7 +42,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'password' => 'fake-password',
                 ),
                 array(
-                    'dsn' => 'mysql:host=localhost;port=3306;dbname=fake-db',
+                    'dsn' => 'oci:dbname=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SID=fake-db)))',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                 ),
@@ -55,12 +56,11 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'password' => 'fake-password',
                 ),
                 array(
-                    'dsn' => 'mysql:host=127.0.0.1;dbname=fake-db',
+                    'dsn' => 'oci:dbname=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SID=fake-db)))',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                 ),
             ),
-            
         );
     }
 }

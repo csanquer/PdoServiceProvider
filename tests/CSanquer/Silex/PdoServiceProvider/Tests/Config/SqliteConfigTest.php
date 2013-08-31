@@ -2,15 +2,16 @@
 
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
+use CSanquer\Silex\PdoServiceProvider\Config\SqliteConfig;
 use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
- * TestCase for MySqlConfig
+ * TestCase for SqliteConfig
  *
  * @author Charles Sanquer <charles.sanquer@gmail.com>
  *
  */
-class MySqlConfigTest extends \PHPUnit_Framework_TestCase
+class SqliteConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var PdoConfig
@@ -19,7 +20,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->pdoConfig = new \CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig();
+        $this->pdoConfig = new SqliteConfig();
     }
 
     /**
@@ -36,31 +37,27 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
         return array(
             array(
                 array(
-                    'dbname' => 'fake-db',
-                    'user' => 'fake-user',
-                    'password' => 'fake-password',
                 ),
                 array(
-                    'dsn' => 'mysql:host=localhost;port=3306;dbname=fake-db',
-                    'user' => 'fake-user',
-                    'password' => 'fake-password',
+                    'dsn' => 'sqlite::memory:',
                 ),
             ),
             array(
                 array(
-                    'host' => '127.0.0.1',
-                    'port' => null,
-                    'dbname' => 'fake-db',
-                    'user' => 'fake-user',
-                    'password' => 'fake-password',
+                    'path' => 'memory',
                 ),
                 array(
-                    'dsn' => 'mysql:host=127.0.0.1;dbname=fake-db',
-                    'user' => 'fake-user',
-                    'password' => 'fake-password',
+                    'dsn' => 'sqlite::memory:',
                 ),
             ),
-            
+            array(
+                array(
+                    'path' => 'var/db/db.sq3',
+                ),
+                array(
+                    'dsn' => 'sqlite:var/db/db.sq3',
+                ),
+            ),
         );
     }
 }

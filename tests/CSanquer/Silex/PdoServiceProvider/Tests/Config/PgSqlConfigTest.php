@@ -2,15 +2,16 @@
 
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
+use CSanquer\Silex\PdoServiceProvider\Config\PgSqlConfig;
 use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
- * TestCase for MySqlConfig
+ * TestCase for PgSqlConfig
  *
  * @author Charles Sanquer <charles.sanquer@gmail.com>
  *
  */
-class MySqlConfigTest extends \PHPUnit_Framework_TestCase
+class PgSqlConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var PdoConfig
@@ -19,7 +20,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->pdoConfig = new \CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig();
+        $this->pdoConfig = new PgSqlConfig();
     }
 
     /**
@@ -41,7 +42,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'password' => 'fake-password',
                 ),
                 array(
-                    'dsn' => 'mysql:host=localhost;port=3306;dbname=fake-db',
+                    'dsn' => 'pgsql:host=localhost;port=5432;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                 ),
@@ -55,12 +56,11 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'password' => 'fake-password',
                 ),
                 array(
-                    'dsn' => 'mysql:host=127.0.0.1;dbname=fake-db',
+                    'dsn' => 'pgsql:host=127.0.0.1;dbname=fake-db',
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                 ),
             ),
-            
         );
     }
 }

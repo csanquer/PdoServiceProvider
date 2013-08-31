@@ -112,23 +112,23 @@ abstract class PdoConfig implements PdoConfigInterface
      * 
      * @param array $params
      */
-    public function sanitize(array $params)
+    public function prepareParameters(array $params)
     {
         $params = $this->resolve($params);
-        $sanitizedParams = array();
+        $preparedParams = array();
         
         if (isset($params['user'])) {
-            $sanitizedParams['user'] = $params['user'];
+            $preparedParams['user'] = $params['user'];
             unset($params['user']);
         }
         
         if (isset($params['password'])) {
-            $sanitizedParams['password'] = $params['password'];
+            $preparedParams['password'] = $params['password'];
             unset($params['password']);
         }
         
-        $sanitizedParams['dsn'] = $this->constructDSN($params);
-        return $sanitizedParams;
+        $preparedParams['dsn'] = $this->constructDSN($params);
+        return $preparedParams;
     }
     
     /**
@@ -140,7 +140,7 @@ abstract class PdoConfig implements PdoConfigInterface
      */
     public function connect(array $params, array $options = array()) 
     {
-        $params = $this->sanitize($params);
+        $params = $this->prepareParameters($params);
         return new \PDO($params['dsn'], $params['user'], $params['password'], $options);
     }
 }

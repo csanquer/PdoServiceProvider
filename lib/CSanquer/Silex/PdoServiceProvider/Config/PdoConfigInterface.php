@@ -14,7 +14,7 @@ interface PdoConfigInterface
      * 
      * @return array
      */
-    public function sanitize(array $params);
+    public function prepareParameters(array $params);
     
     /**
      * 
