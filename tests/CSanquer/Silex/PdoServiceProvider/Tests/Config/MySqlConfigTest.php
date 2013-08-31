@@ -2,6 +2,7 @@
 
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
+use CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig;
 use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
@@ -19,7 +20,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->pdoConfig = new \CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig();
+        $this->pdoConfig = new MySqlConfig();
     }
 
     /**
