@@ -1,8 +1,8 @@
 {
     "name": "csanquer/pdo-service-provider",
-    "description": "a PDO database service provider",
+    "description": "a PDO database service provider for silex",
     "keywords": [
-        "silex", "database", "pdo"
+        "silex", "database", "pdo", "service provider"
     ],
     "license": "MIT",
     "authors": [
