@@ -2,7 +2,7 @@ PdoServiceProvider
 ==================
 
 [![Build Status](https://travis-ci.org/csanquer/PdoServiceProvider.png?branch=master)](https://travis-ci.org/csanquer/PdoServiceProvider)
-[![Project Status](https://stillmaintained.com/csanquer/PdoServiceProvider.png)](https://stillmaintained.com/csanquer/PdoServiceProvider)
+[![Project Status](http://stillmaintained.com/csanquer/PdoServiceProvider.png)](http://stillmaintained.com/csanquer/PdoServiceProvider)
 
 a PDO service provider for Silex
 
