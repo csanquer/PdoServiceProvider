@@ -16,30 +16,30 @@ class PDOServiceProvider implements ServiceProviderInterface
 
     public function register(Application $app)
     {
-        $app['pdo.dbs.options'] = array();
-        $app['pdo.dbs.default'] = null;
         $app['pdo.dbs.default_options'] = array(
             'driver' => 'sqlite',
             'options' => array(),
         );
-
+        
         $app['pdo.dbs'] = $app->share(function ($app) {
+            if (empty($app['pdo.dbs.options']) && isset($app['pdo.db.options'])) {
+                $app['pdo.dbs.options'] = array(
+                    'default' => $app['pdo.db.options'],
+                );
+            }
+            
             if (!empty($app['pdo.dbs.options'])) {
                 $factory = new PdoConfigFactory();
                 $dbs = new \Pimple();
                 $dbNames = array();
                 foreach ($app['pdo.dbs.options'] as $name => $params) {
-                    if (empty($params)) {
-                        $params = $app['pdo.dbs.default_options'];
+                    if (!isset($app['pdo.dbs.default'])) {
+                        $app['pdo.dbs.default'] = $name;
                     }
-
+                    
+                    $params = array_replace($app['pdo.dbs.default_options'], $params);
                     $cfg = $factory->createConfig($params);
-                    $dbNames[] = $name;
                     $dbs[$name] = $cfg->connect($params);
-                }
-                
-                if (!empty($dbNames) && (empty($app['pdo.dbs.default']) || !in_array($app['pdo.dbs.default'], $dbNames))) {
-                    $app['pdo.dbs.default'] = $dbNames[0];
                 }
                 
                 return $dbs;
@@ -50,7 +50,7 @@ class PDOServiceProvider implements ServiceProviderInterface
         $app['pdo'] = $app->share(function ($app) {
             $dbs = $app['pdo.dbs'];
 
-            return $dbs[$app['pdo.dbs.default']];
+            return isset($app['pdo.dbs.default']) ? $dbs[$app['pdo.dbs.default']] : null;
         });
 
     }

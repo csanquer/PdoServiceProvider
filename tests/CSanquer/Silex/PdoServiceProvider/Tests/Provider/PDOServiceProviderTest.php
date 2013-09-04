@@ -21,9 +21,10 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
             'driver' => 'sqlite',
             'options' => array(),
         ), $app['pdo.dbs.default_options']);
-        $this->assertEmpty($app['pdo.dbs.options']);
-        $this->assertNull($app['pdo.dbs.default']);
-        $this->assertEmpty($app['pdo.dbs']);
+        $this->assertNull($app['pdo.dbs']);
+        $this->assertArrayNotHasKey('pdo.db.options', $app);
+        $this->assertArrayNotHasKey('pdo.dbs.options', $app);
+        $this->assertArrayNotHasKey('pdo.dbs.default', $app);
         $this->assertNull($app['pdo']);
     }
     
@@ -36,10 +37,8 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = new \Silex\Application();
         $app->register(new \CSanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider());
         
-        $app['pdo.dbs.options'] = array(
-            'default' => array(
-                'driver' => 'sqlite',
-            ),
+        $app['pdo.db.options'] = array(
+            'driver' => 'sqlite',
         );
         
         $this->assertInstanceOf('\Pimple',$app['pdo.dbs']);
