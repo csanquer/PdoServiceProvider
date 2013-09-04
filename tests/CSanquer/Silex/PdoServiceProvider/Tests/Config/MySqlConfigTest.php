@@ -3,7 +3,6 @@
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
 use CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig;
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
  * TestCase for MySqlConfig
@@ -14,7 +13,7 @@ use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 class MySqlConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PdoConfig
+     * @var MySqlConfig
      */
     protected $pdoConfig;
 

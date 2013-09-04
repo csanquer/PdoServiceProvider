@@ -3,7 +3,6 @@
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
 use CSanquer\Silex\PdoServiceProvider\Config\SqliteConfig;
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
  * TestCase for SqliteConfig
@@ -14,7 +13,7 @@ use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 class SqliteConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PdoConfig
+     * @var SqliteConfig
      */
     protected $pdoConfig;
 

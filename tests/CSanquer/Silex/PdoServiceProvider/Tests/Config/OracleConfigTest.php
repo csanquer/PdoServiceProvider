@@ -3,7 +3,6 @@
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
 use CSanquer\Silex\PdoServiceProvider\Config\OracleConfig;
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
  * TestCase for OracleConfig
@@ -14,7 +13,7 @@ use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 class OracleConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PdoConfig
+     * @var OracleConfig
      */
     protected $pdoConfig;
 

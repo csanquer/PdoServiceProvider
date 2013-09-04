@@ -12,11 +12,6 @@ namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
 {
 
-//    public function setUp()
-//    {
-//        $this->pdoConfig = new MySqlConfig();
-//    }
-
     public function testDefault()
     {
         $app = new \Silex\Application();
@@ -99,36 +94,3 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($master, $app['pdo']);
     }
 }
-
-/*
-$app['pdo.dbs.default_options'] = array(
-            'driver' => 'mysql',
-            'options' => array(),
-        );
-
-        $app['pdo.dbs'] = $app->share(function ($app) {
-            $factory = new \CSanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory();
-            $dbs = new \Pimple();
-            foreach ($app['pdo.dbs.options'] as $name => $params) {
-                if (!isset($app['pdo.dbs.default'])) {
-                    $app['pdo.dbs.default'] = $name;
-                }
-                
-                if (empty($params)) {
-                    $params = $app['pdo.dbs.default_options'];
-                }
-                
-                $cfg = $factory->createConfig($params);
-                $dbs[$name] = $cfg->connect($params);
-            }
-            
-            return $dbs;
-        });
-        
-        // shortcuts for the "first" DB
-        $app['pdo'] = $app->share(function ($app) {
-            $dbs = $app['pdo.dbs'];
-
-            return $dbs[$app['pdo.dbs.default']];
-        });
- * */

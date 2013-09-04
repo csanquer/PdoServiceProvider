@@ -27,19 +27,21 @@ class PDOServiceProvider implements ServiceProviderInterface
             if (!empty($app['pdo.dbs.options'])) {
                 $factory = new PdoConfigFactory();
                 $dbs = new \Pimple();
+                $dbNames = array();
                 foreach ($app['pdo.dbs.options'] as $name => $params) {
-                    if (!isset($app['pdo.dbs.default']) || $app['pdo.dbs.default'] == null) {
-                        $app['pdo.dbs.default'] = $name;
-                    }
-
                     if (empty($params)) {
                         $params = $app['pdo.dbs.default_options'];
                     }
 
                     $cfg = $factory->createConfig($params);
+                    $dbNames[] = $name;
                     $dbs[$name] = $cfg->connect($params);
                 }
-
+                
+                if (!empty($dbNames) && (empty($app['pdo.dbs.default']) || !in_array($app['pdo.dbs.default'], $dbNames))) {
+                    $app['pdo.dbs.default'] = $dbNames[0];
+                }
+                
                 return $dbs;
             }
         });

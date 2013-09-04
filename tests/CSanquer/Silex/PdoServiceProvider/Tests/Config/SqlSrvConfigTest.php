@@ -3,7 +3,6 @@
 namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
 
 use CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig;
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 
 /**
  * TestCase for SqlSrvConfig
@@ -14,7 +13,7 @@ use CSanquer\Silex\PdoServiceProvider\Config\PdoConfig;
 class SqlSrvConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PdoConfig
+     * @var SqlSrvConfig
      */
     protected $pdoConfig;
 
