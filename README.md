@@ -1,8 +1,5 @@
-PdoServiceProvider
+PdoServiceProvider [![Build Status](https://travis-ci.org/csanquer/PdoServiceProvider.png?branch=master)](https://travis-ci.org/csanquer/PdoServiceProvider) [![Project Status](http://stillmaintained.com/csanquer/PdoServiceProvider.png)](http://stillmaintained.com/csanquer/PdoServiceProvider)
 ==================
-
-[![Build Status](https://travis-ci.org/csanquer/PdoServiceProvider.png?branch=master)](https://travis-ci.org/csanquer/PdoServiceProvider)
-[![Project Status](http://stillmaintained.com/csanquer/PdoServiceProvider.png)](http://stillmaintained.com/csanquer/PdoServiceProvider)
 
 a PDO service provider for Silex
 
@@ -26,8 +23,7 @@ $app = new Application();
 $app->register(
     new PdoServiceProvider(),
     array(
-        // set default database (if not set, default is first )
-        'pdo.dbs.default' => 'db1'
+        'pdo.dbs.default' => 'db1', // set default database (if not set, default is first )
         'pdo.dbs.options' => array(
             // first and default database
             'db1' => array(
