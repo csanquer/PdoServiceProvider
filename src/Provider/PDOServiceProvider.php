@@ -36,59 +36,30 @@ class PDOServiceProvider implements ServiceProviderInterface
      *
      * @return \PDO
      */
-    protected function getPdoFactory(Application $app, $prefix)
+    protected function getPdo(Application $app, $prefix)
     {
-        return $app->protect(function($options) use ($app, $prefix) {
-            $factory = $app[$prefix.'.config_factory'];
+        return $app->share(function() use ($app, $prefix) {
+            $factory = new PdoConfigFactory();
 
-            $options = array_replace($app[$prefix.'.default_options'], is_array($options) ? $options : (array) $options);
+            $options = array_replace(
+                array(
+                    'driver' => 'sqlite',
+                    'options' => array(),
+                ),
+                isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array()
+            );
+            $app[$prefix.'.options'] = $options;
+
             $cfg = $factory->createConfig($options);
 
             return $cfg->connect($options);
         });
     }
 
-    /**
-     * @param Application $app
-     * @param string      $prefix
-     *
-     * @return \PDO
-     */
-    protected function getProviderHandler(Application $app, $prefix)
-    {
-        return $app->share(function() use ($app, $prefix) {
-            if (empty($app[$prefix.'.options'])) {
-                $app[$prefix.'.options'] = array();
-            }
-
-            return $app[$prefix.'.pdo_factory']($app[$prefix.'.options']);
-        });
-    }
-
-    protected function getDefaultPdo(Application $app, $prefix)
-    {
-        return $app->share(function() use ($app, $prefix) {
-            return $app[$prefix];
-        });
-    }
-
     public function register(Application $app)
     {
         $prefix = $this->prefix;
-
-        $app[$prefix.'.default_options'] = array(
-            'driver' => 'sqlite',
-            'options' => array(),
-        );
-
-        $app[$prefix.'.config_factory'] = $app->share(function() {
-            return new PdoConfigFactory();
-        });
-
-        $app[$prefix.'.pdo_factory'] = $this->getPdoFactory($app, $prefix);
-
-        $app[$prefix] = $this->getProviderHandler($app, $prefix);
-        $app[$prefix.'.default'] = $this->getDefaultPdo($app, $prefix);
+        $app[$prefix] = $this->getPdo($app, $prefix);
     }
 
     public function boot(Application $app)

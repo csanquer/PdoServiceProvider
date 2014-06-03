@@ -63,36 +63,38 @@ $pdo = $app['pdo'];
 
 * Configure several databases
 
-use `MultiPdoServiceProvider` silex provider instead of `PdoServiceProvider`:
-
 ```php
-use CSanquer\Silex\PdoServiceProvider\Provider\MultiPdoServiceProvider;
+use CSanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
 use Silex\Application;
 
 $app = new Application();
 $app->register(
-    // you can customize services and options prefix with the provider first argument (default = 'pdo')
-    new MultiPdoServiceProvider('pdo'),
+    // use custom prefix for service and options
+    // first PDO connection
+    new PdoServiceProvider('pdo.db1'),
     array(
-        // set default database (if not set, default is first )
-        'pdo.dbs.default' => 'db1', 
-        'pdo.dbs' => array(
-            // first and default database
-            'db1' => array(
-                // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
-                'driver' => 'mysql',
-                'host' => '127.0.0.1',
-                'dbname' => 'db1',
-                'port' => '3306', 
-                'username' => 'username',
-                'password' => 'password',
-                // optional PDO options
-                'options' => array(
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
-                ),
+        // use previous custom prefix pdo.db1
+        'pdo.db1.options' => array(
+            // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'dbname' => 'db1',
+            'port' => '3306', 
+            'username' => 'username',
+            'password' => 'password',
+            // optional PDO options
+            'options' => array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
             ),
-            // a second database
-            'db2' => array(
+        ),
+    )
+);
+
+$app->register(
+    // second PDO connection
+    new PdoServiceProvider('pdo.db2'),
+    array(
+        'pdo.db2.options' => array(
                 'driver' => 'sqlite',
                 'path' => 'var/db/db2.sqlite',
                 'options' => array(
@@ -103,9 +105,6 @@ $app->register(
 );
 
 // get PDO connections
-$db1Pdo = $app['pdo']['db1'];
-$db2Pdo = $app['pdo']['db2'];
-
-// get default database
-$db1Pdo = $app['pdo.default'];
+$db1Pdo = $app['pdo.db1'];
+$db2Pdo = $app['pdo.db2'];
 ```

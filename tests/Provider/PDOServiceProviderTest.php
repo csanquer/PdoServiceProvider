@@ -18,7 +18,7 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider providerConnection
      */
-    public function testConnection($prefix, $options)
+    public function testConnection($prefix, $options = array())
     {
         if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
             $this->markTestSkipped('pdo_sqlite is not available');
@@ -33,18 +33,8 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
             $prefix.'.options' => $options,
         ));
         
-        $this->assertEquals(array(
-            'driver' => 'sqlite',
-            'options' => array(),
-        ), $app[$prefix.'.default_options']);
-
-        $this->assertEquals($options, $app[$prefix.'.options']);
         $this->assertInternalType('array', $app[$prefix.'.options']);
-        $this->assertInstanceOf('\CSanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory', $app[$prefix.'.config_factory']);
-        $this->assertInstanceOf('\Closure', $app[$prefix.'.pdo_factory']);
         $this->assertInstanceOf('\PDO', $app[$prefix]);
-        $this->assertInstanceOf('\PDO', $app[$prefix.'.default']);
-        $this->assertEquals($app[$prefix], $app[$prefix.'.default']);
     }
     
     public function providerConnection() 
@@ -52,15 +42,13 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         return array(
             array(
                 null,
-                array(),
             ),
             array(
                 'pdo',
-                array(),
             ),
             array(
                 'foo',
-                array('driver' => 'sqlite'),
+                array('driver' => 'sqlite', 'path' => 'memory'),
             ),
         );
     }
