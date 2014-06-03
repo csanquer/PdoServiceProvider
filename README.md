@@ -9,7 +9,7 @@ Installation
 add this package to Composer dependencies configuration:
 
 ```sh
-php composer.phar require "csanquer/pdo-silex-provider=dev-master"
+php composer.phar require "csanquer/pdo-silex-provider=~0.2"
 ```
 
 Usage
@@ -25,7 +25,7 @@ use Silex\Application;
 
 $app = new Application();
 $app->register(
-    // you can customize default services prefix with the provider first argument (default = 'pdo')
+    // you can customize services and options prefix with the provider first argument (default = 'pdo')
     new PdoServiceProvider('pdo'),
     array(
         'pdo.options' => array(
@@ -58,8 +58,8 @@ use Silex\Application;
 
 $app = new Application();
 $app->register(
-    // you can customize default services prefix with the provider first argument (default = 'pdo')
-    new MultiPdoServiceProvider(),
+    // you can customize services and options prefix with the provider first argument (default = 'pdo')
+    new MultiPdoServiceProvider('pdo'),
     array(
         // set default database (if not set, default is first )
         'pdo.dbs.default' => 'db1', 
