@@ -24,5 +24,4 @@ catalog.xml
 /build
 /vendor
 composer.phar
-composer.lock
 phpunit.xml
