@@ -5,8 +5,10 @@ PdoServiceProvider
 [![Latest Unstable Version](https://poser.pugx.org/csanquer/pdo-service-provider/v/unstable.svg)](https://packagist.org/packages/csanquer/pdo-service-provider)
 [![Build Status](https://travis-ci.org/csanquer/PdoServiceProvider.png?branch=master)](https://travis-ci.org/csanquer/PdoServiceProvider)
 
+[![Dependency Status](https://www.versioneye.com/user/projects/52fa225bec137599bb000033/badge.svg)](https://www.versioneye.com/user/projects/52fa225bec137599bb000033)
 [![Project Status](http://stillmaintained.com/csanquer/PdoServiceProvider.png)](http://stillmaintained.com/csanquer/PdoServiceProvider)
 [![License](https://poser.pugx.org/csanquer/pdo-service-provider/license.svg)](https://packagist.org/packages/csanquer/pdo-service-provider)
+
 [![Daily Downloads](https://poser.pugx.org/csanquer/pdo-service-provider/d/daily.png)](https://packagist.org/packages/csanquer/pdo-service-provider)
 [![Monthly Downloads](https://poser.pugx.org/csanquer/pdo-service-provider/d/monthly.png)](https://packagist.org/packages/csanquer/pdo-service-provider)
 [![Total Downloads](https://poser.pugx.org/csanquer/pdo-service-provider/downloads.svg)](https://packagist.org/packages/csanquer/pdo-service-provider)

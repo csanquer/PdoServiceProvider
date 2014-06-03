@@ -11,8 +11,14 @@
             "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_pimple.git",
-                "reference": "5573b1a9e4b31fd544f669c26365cb6f75175815"
+                "url": "https://github.com/fabpot/Pimple.git",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
@@ -28,13 +34,16 @@
                     "Pimple": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -50,8 +59,14 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/psr-3-log",
+                "url": "https://github.com/php-fig/log.git",
                 "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
             },
             "type": "library",
             "autoload": {
@@ -59,6 +74,7 @@
                     "Psr\\Log\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -81,8 +97,14 @@
             "version": "v1.2.0",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_silex.git",
-                "reference": "87dbafc9d7ae39b49394d038e94314b2f91c3718"
+                "url": "https://github.com/silexphp/Silex.git",
+                "reference": "aed7cb81eef9ba1082204027a0e3b60440a212e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/aed7cb81eef9ba1082204027a0e3b60440a212e0",
+                "reference": "aed7cb81eef9ba1082204027a0e3b60440a212e0",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
@@ -132,17 +154,21 @@
                     "Silex": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch"
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
                 }
             ],
             "description": "The PHP micro-framework based on the Symfony2 Components",
@@ -150,7 +176,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2014-03-29 14:15:48"
+            "time": "2014-03-29 14:15:59"
         },
         {
             "name": "symfony/debug",
@@ -158,8 +184,14 @@
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_debug.git",
-                "reference": "f04e98e84aab52a2055727ea5d2cf1210cb377b7"
+                "url": "https://github.com/symfony/Debug.git",
+                "reference": "7fd8006e4604ef99c95050ca2b5c7c5b41f5c704"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/7fd8006e4604ef99c95050ca2b5c7c5b41f5c704",
+                "reference": "7fd8006e4604ef99c95050ca2b5c7c5b41f5c704",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -183,13 +215,16 @@
                     "Symfony\\Component\\Debug\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -206,8 +241,14 @@
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_event_dispatcher.git",
-                "reference": "2ba70e5c3e836423795c2149f1278065476e4213"
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8",
+                "reference": "cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -233,13 +274,16 @@
                     "Symfony\\Component\\EventDispatcher\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -256,8 +300,14 @@
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_http_foundation.git",
-                "reference": "df8ffd6ade93e4b24e61a09e65ec6e4b89712d33"
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "044085422005aa3258fb3f710a7bf0202011f259"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/044085422005aa3258fb3f710a7bf0202011f259",
+                "reference": "044085422005aa3258fb3f710a7bf0202011f259",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -279,13 +329,16 @@
                     "Symfony/Component/HttpFoundation/Resources/stubs"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -302,8 +355,14 @@
             "target-dir": "Symfony/Component/HttpKernel",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_http_kernel.git",
-                "reference": "f0e8b3c96bcf9bc37147af87b9c51480990948c9"
+                "url": "https://github.com/symfony/HttpKernel.git",
+                "reference": "432a828e796a575d4a325a0fdf14132a615d2c53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/432a828e796a575d4a325a0fdf14132a615d2c53",
+                "reference": "432a828e796a575d4a325a0fdf14132a615d2c53",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
@@ -343,13 +402,16 @@
                     "Symfony\\Component\\HttpKernel\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -366,8 +428,14 @@
             "target-dir": "Symfony/Component/OptionsResolver",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_option_resolver.git",
-                "reference": "3c4e42db77af0bf9911646488e91f103581adaeb"
+                "url": "https://github.com/symfony/OptionsResolver.git",
+                "reference": "1b4a27c83460b315bb7c81ffa803ecbdccb59960"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/OptionsResolver/zipball/1b4a27c83460b315bb7c81ffa803ecbdccb59960",
+                "reference": "1b4a27c83460b315bb7c81ffa803ecbdccb59960",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -383,13 +451,16 @@
                     "Symfony\\Component\\OptionsResolver\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -411,8 +482,14 @@
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_routing.git",
-                "reference": "838ee7983312a6d39030a70b297db24118c93b74"
+                "url": "https://github.com/symfony/Routing.git",
+                "reference": "99b4e8e2978e6a08c086fd771cc0aa66c9e80a56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/99b4e8e2978e6a08c086fd771cc0aa66c9e80a56",
+                "reference": "99b4e8e2978e6a08c086fd771cc0aa66c9e80a56",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -441,13 +518,16 @@
                     "Symfony\\Component\\Routing\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -457,10 +537,10 @@
             "description": "Symfony Routing Component",
             "homepage": "http://symfony.com",
             "keywords": [
-                "URI",
-                "URL",
                 "router",
-                "routing"
+                "routing",
+                "uri",
+                "url"
             ],
             "time": "2014-04-23 14:08:54"
         }
@@ -1118,8 +1198,14 @@
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
-                "url": "git@git.ger-multimedia.com:mirror/mirror_symfony_yaml.git",
-                "reference": "0a7466a3b3347019fb20c3d16dc2ce27a29848da"
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "b4b09c68ec2f2727574544ef0173684281a5033c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/b4b09c68ec2f2727574544ef0173684281a5033c",
+                "reference": "b4b09c68ec2f2727574544ef0173684281a5033c",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1135,13 +1221,16 @@
                     "Symfony\\Component\\Yaml\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1150,7 +1239,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-05-15 00:05:21"
+            "time": "2014-05-16 14:25:18"
         }
     ],
     "aliases": [
