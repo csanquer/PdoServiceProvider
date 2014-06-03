@@ -10,12 +10,12 @@ namespace CSanquer\Silex\PdoServiceProvider\Config;
 class PdoConfigFactory
 {
     /**
-     * 
+     *
      * @param array $params
-     * 
+     *
      * @return PdoConfigInterface
      */
-    public function createConfig(array $params) 
+    public function createConfig(array $params)
     {
         $driver = isset($params['driver']) ? $params['driver'] : null;
         switch ($driver) {
@@ -46,7 +46,7 @@ class PdoConfigFactory
                 $cfg = new SqliteConfig();
                 break;
         }
-        
+
         return $cfg;
     }
 }

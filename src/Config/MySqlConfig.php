@@ -10,7 +10,7 @@ namespace CSanquer\Silex\PdoServiceProvider\Config;
 class MySqlConfig extends PdoConfig
 {
     protected $driver = 'mysql';
-    
+
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 3306,
@@ -18,7 +18,7 @@ class MySqlConfig extends PdoConfig
         'unix_socket' => null,
         'password' => null,
     );
-    
+
     protected $allowedTypes = array(
         'host' => array('string'),
         'port' => array('integer', 'null'),
@@ -28,18 +28,18 @@ class MySqlConfig extends PdoConfig
         'charset' => array('string', 'null'),
         'unix_socket' => array('string', 'null'),
     );
-    
+
     protected function resolve(array $params)
     {
         $params = parent::resolve($params);
-        
+
         if (!empty($params['unix_socket'])) {
             unset($params['host']);
             unset($params['port']);
         } else {
             unset($params['unix_socket']);
         }
-        
+
         return $params;
     }
 }

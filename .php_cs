@@ -24,7 +24,7 @@ return Symfony\CS\Config\Config::create()
         'include',
         'php_closing_tag',
         'extra_empty_lines',
-        'psr0',
+        //'psr0',
         'controls_spaces',
         'elseif',
         'eof_ending',

@@ -10,18 +10,18 @@ namespace CSanquer\Silex\PdoServiceProvider\Config;
 class PgSqlConfig extends PdoConfig
 {
     protected $driver = 'pgsql';
-    
+
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 5432,
         'password' => null,
     );
-    
+
     protected $allowedTypes = array(
         'host' => array('string'),
         'port' => array('integer', 'null'),
         'dbname' => array('string'),
         'user' => array('string'),
         'password' => array('string', 'null'),
-    );  
+    );
 }

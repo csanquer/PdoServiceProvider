@@ -10,7 +10,7 @@ namespace CSanquer\Silex\PdoServiceProvider\Config;
 class OracleConfig extends PdoConfig
 {
     protected $driver = 'oci';
-    
+
     protected $defaults = array(
         'host' => 'localhost',
         'port' => 1521,
@@ -18,7 +18,7 @@ class OracleConfig extends PdoConfig
         'charset' => null,
         'password' => null,
     );
-    
+
     protected $allowedTypes = array(
         'host' => array('string'),
         'port' => array('integer', 'null'),
@@ -26,13 +26,13 @@ class OracleConfig extends PdoConfig
         'user' => array('string'),
         'password' => array('string', 'null'),
         'service' => array('bool', 'null'),
-        'charset' => array('string', 'null'),        
-    );    
-    
+        'charset' => array('string', 'null'),
+    );
+
     protected function resolve(array $params)
     {
         $params = parent::resolve($params);
-        
+
         if (isset($params['host']) && $params['host'] != null) {
             $dbname = '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)' .
                    '(HOST=' . $params['host'] . ')';
@@ -48,14 +48,14 @@ class OracleConfig extends PdoConfig
             } else {
                 $dbname .= '))(CONNECT_DATA=(SID=' . $params['dbname'] . ')))';
             }
-            
+
             $params['dbname'] = $dbname;
         }
-        
+
         unset($params['host']);
         unset($params['port']);
         unset($params['service']);
-        
+
         return $params;
     }
 }

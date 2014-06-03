@@ -9,7 +9,7 @@ Installation
 add this package to Composer dependencies configuration:
 
 ```sh
-php composer.phar require "csanquer/pdo-silex-provider=dev-master"
+php composer.phar require "csanquer/pdo-silex-provider"
 ```
 
 Usage
@@ -17,16 +17,18 @@ Usage
 
 * Configure only one database
 
+use the `PdoServiceProvider` silex provider :
+
 ```php
 use CSanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
 use Silex\Application;
 
 $app = new Application();
 $app->register(
-    new PdoServiceProvider(),
+    // you can customize default services prefix with the provider first argument (default = 'pdo')
+    new PdoServiceProvider('pdo'),
     array(
-        // only one database called default : pdo.db instead of pdo.dbs
-        'pdo.db.options' => array(
+        'pdo.options' => array(
             // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
             'driver' => 'mysql',
             'host' => '127.0.0.1',
@@ -42,26 +44,26 @@ $app->register(
     )
 );
 
-// get PDO connections
-$pdo = $app['pdo.dbs']['default'];
-
-// shorcut for default database
+// get PDO connection
 $pdo = $app['pdo'];
 ```
 
 * Configure several databases
 
+use `MultiPdoServiceProvider` silex provider instead of `PdoServiceProvider`:
+
 ```php
-use CSanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
+use CSanquer\Silex\PdoServiceProvider\Provider\MultiPdoServiceProvider;
 use Silex\Application;
 
 $app = new Application();
 $app->register(
-    new PdoServiceProvider(),
+    // you can customize default services prefix with the provider first argument (default = 'pdo')
+    new MultiPdoServiceProvider(),
     array(
         // set default database (if not set, default is first )
         'pdo.dbs.default' => 'db1', 
-        'pdo.dbs.options' => array(
+        'pdo.dbs' => array(
             // first and default database
             'db1' => array(
                 // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
@@ -88,9 +90,9 @@ $app->register(
 );
 
 // get PDO connections
-$db1Pdo = $app['pdo.dbs']['db1'];
-$db2Pdo = $app['pdo.dbs']['db2'];
+$db1Pdo = $app['pdo']['db1'];
+$db2Pdo = $app['pdo']['db2'];
 
 // get default database
-$db1Pdo = $app['pdo'];
+$db1Pdo = $app['pdo.default'];
 ```
