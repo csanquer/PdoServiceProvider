@@ -20,13 +20,15 @@ class MultiPDOServiceProvider extends PDOServiceProvider
     protected function getProviderHandler(Application $app, $prefix)
     {
         return $app->share(function() use ($app, $prefix) {
-            $connections = array();
+            $connections = new \Pimple();
             foreach ($app[$prefix.'.dbs'] as $db => $options) {
-                if (empty($app[$prefix.'.dbs.default'])) {
-                    $app[$prefix.'.dbs.default'] = $db;
-                }
+                $connections[$db] = $app->share(function() use ($app, $prefix, $db, $options) {
+                    if (empty($app[$prefix.'.dbs.default'])) {
+                        $app[$prefix.'.dbs.default'] = $db;
+                    }
 
-                $connections[$db] = $app[$prefix.'.pdo_factory']($options);
+                    return $app[$prefix.'.pdo_factory']($options);
+                });
             }
 
             return $connections;
@@ -38,7 +40,7 @@ class MultiPDOServiceProvider extends PDOServiceProvider
         return $app->share(function() use ($app, $prefix) {
             $connections = $app[$prefix];
 
-            return array_key_exists($app[$prefix.'.dbs.default'], $connections) ?
+            return isset($connections[$app[$prefix.'.dbs.default']]) ?
                 $connections[$app[$prefix.'.dbs.default']] :
                 null;
         });

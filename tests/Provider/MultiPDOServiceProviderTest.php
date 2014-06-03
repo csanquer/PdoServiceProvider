@@ -42,10 +42,6 @@ class MultiPDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\CSanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory', $app[$prefix.'.config_factory']);
         $this->assertInstanceOf('\Closure', $app[$prefix.'.pdo_factory']);
 
-        /*$this->assertEquals('foo', $app[$prefix.'.dbs.default']);*/
-
-        $this->assertCount(count($dbs), $app[$prefix]);
-
         foreach ($dbs as $db => $options) {
             $this->assertArrayHasKey($db, $app[$prefix]);
             $this->assertInstanceOf('\PDO', $app[$prefix][$db]);
