@@ -9,7 +9,7 @@ Installation
 add this package to Composer dependencies configuration:
 
 ```sh
-php composer.phar require "csanquer/pdo-silex-provider"
+php composer.phar require "csanquer/pdo-silex-provider=dev-master"
 ```
 
 Usage
