@@ -21,6 +21,9 @@
         "phpunit/phpunit": "~4.1"
     },
     "autoload": {
-        "psr-0": { "CSanquer": "lib/" }
+        "psr-4": { 
+            "CSanquer\\Silex\\PdoServiceProvider\\": "src/",
+            "CSanquer\\Silex\\PdoServiceProvider\\Tests\\": "tests/"
+        }
     }
 }
