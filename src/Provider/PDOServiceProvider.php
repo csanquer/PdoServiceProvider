@@ -52,6 +52,9 @@ class PDOServiceProvider implements ServiceProviderInterface
                 $app[$prefix.'.server'],
                 array(
                     'options' => isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array(),
+                ),
+                array(
+                    'attributes' => isset($app[$prefix.'.attributes']) ? (array) $app[$prefix.'.attributes'] : array(),
                 )
             );
 
@@ -67,6 +70,7 @@ class PDOServiceProvider implements ServiceProviderInterface
 
         $app[$prefix.'.server'] = array();
         $app[$prefix.'.options'] = array();
+        $app[$prefix.'.attributes'] = array();
 
         $app[$prefix] = $this->getPdo($app, $prefix);
     }

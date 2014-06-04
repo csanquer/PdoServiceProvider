@@ -40,6 +40,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 array(
                     'dsn' => 'sqlite::memory:',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -49,6 +50,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 array(
                     'dsn' => 'sqlite::memory:',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -58,6 +60,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
                 array(
                     'dsn' => 'sqlite:var/db/db.sq3',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
         );

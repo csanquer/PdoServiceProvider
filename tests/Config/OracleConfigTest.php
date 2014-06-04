@@ -45,6 +45,7 @@ class OracleConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -60,6 +61,7 @@ class OracleConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -76,6 +78,7 @@ class OracleConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
         );

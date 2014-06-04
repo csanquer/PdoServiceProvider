@@ -45,6 +45,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -60,6 +61,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
                 ),
             ),
             array(
@@ -74,6 +76,27 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
                     'user' => 'fake-user',
                     'password' => 'fake-password',
                     'options' => array(),
+                    'attributes' => array(),
+                ),
+            ),
+            array(
+                array(
+                    'unix_socket' => '/var/run/mysqld/mysqld.sock',
+                    'dbname' => 'fake-db',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                    'attributes' => array(
+                        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
+                    ),
+                ),
+                array(
+                    'dsn' => 'mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=fake-db',
+                    'user' => 'fake-user',
+                    'password' => 'fake-password',
+                    'options' => array(),
+                    'attributes' => array(
+                        \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
+                    ),
                 ),
             ),
         );

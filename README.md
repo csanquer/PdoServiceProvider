@@ -52,10 +52,16 @@ $app->register(
             'user'     => 'ger',
             'password' => 'GER',
         ),
-        // optional PDO options used in PDO constructor 4th argument driver_options
+        // optional PDO attributes used in PDO constructor 4th argument driver_options
+        // some PDO attributes can be used only as PDO driver_options
         // see http://www.php.net/manual/fr/pdo.construct.php
         'pdo.options' => array(
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
+        ),
+        // optional PDO attributes set with PDO::setAttribute
+        // see http://www.php.net/manual/fr/pdo.setattribute.php
+        'pdo.attributes' => array(
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
         ),
     )
 );
@@ -86,10 +92,13 @@ $app->register(
             'user'     => 'username',
             'password' => 'password',
         ),
+        // optional PDO attributes used in PDO constructor 4th argument driver_options 
         'pdo.db1.options' => array(
-            // optional PDO options used in PDO constructor 4th argument driver_options
-            // see http://www.php.net/manual/fr/pdo.construct.php
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
+        ),
+        // optional PDO attributes set with PDO::setAttribute
+        'pdo.db1.attributes' => array(
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
         ),
     )
 );
@@ -101,8 +110,6 @@ $app->register(
         'pdo.db2.server' => array(
             'driver' => 'sqlite',
             'path' => 'var/db/db2.sqlite',
-        ),
-        'pdo.db2.options' => array(
         ),
     )
 );

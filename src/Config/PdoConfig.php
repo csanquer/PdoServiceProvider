@@ -75,6 +75,7 @@ abstract class PdoConfig implements PdoConfigInterface
         $this->allowedTypes = array_merge(array(
             'driver' => array('string'),
             'options' => array('array', 'null'),
+            'attributes' => array('array'),
         ), $this->allowedTypes);
 
         $this->allowedValues = array_merge(array(
@@ -84,6 +85,7 @@ abstract class PdoConfig implements PdoConfigInterface
         $this->defaults = array_merge(array(
             'driver' => $this->driver,
             'options' => array(),
+            'attributes' => array(),
         ), $this->defaults);
 
         $this->resolver = new OptionsResolver();
@@ -147,6 +149,11 @@ abstract class PdoConfig implements PdoConfigInterface
             unset($params['password']);
         }
 
+        if (isset($params['attributes'])) {
+            $preparedParams['attributes'] = $params['attributes'];
+            unset($params['attributes']);
+        }
+
         $preparedParams['dsn'] = $this->constructDSN($params);
 
         return $preparedParams;
@@ -162,11 +169,19 @@ abstract class PdoConfig implements PdoConfigInterface
     {
         $params = $this->prepareParameters($params);
 
-        return new \PDO(
+        $pdo = new \PDO(
             $params['dsn'],
             isset($params['user']) ? (string) $params['user'] : null,
             isset($params['password']) ? (string) $params['password'] : null,
             isset($params['options']) ? (array) $params['options'] : array()
         );
+
+        if (is_array($params['attributes'])) {
+            foreach ($params['attributes'] as $attr => $value) {
+                $pdo->setAttribute($attr, $value);
+            }
+        }
+
+        return $pdo;
     }
 }
