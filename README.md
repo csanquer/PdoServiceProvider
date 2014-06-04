@@ -46,8 +46,8 @@ $app->register(
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'dbname' => 'db1',
-            'port' => '3306', 
-            'username' => 'username',
+            'port' => 3306,
+            'user' => 'username',
             'password' => 'password',
             // optional PDO options
             'options' => array(
@@ -79,8 +79,8 @@ $app->register(
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'dbname' => 'db1',
-            'port' => '3306', 
-            'username' => 'username',
+            'port' => 3306,
+            'user' => 'username',
             'password' => 'password',
             // optional PDO options
             'options' => array(
