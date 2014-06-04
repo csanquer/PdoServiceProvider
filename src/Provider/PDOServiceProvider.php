@@ -41,18 +41,19 @@ class PDOServiceProvider implements ServiceProviderInterface
         return $app->share(function () use ($app, $prefix) {
             $factory = new PdoConfigFactory();
 
-            $server  = array_replace(
+            $app[$prefix.'.server']  = array_merge(
                 array(
                     'driver' => 'sqlite',
                 ),
                 isset($app[$prefix.'.server']) ? (array) $app[$prefix.'.server'] : array()
             );
-            $options = array(
-                'options' => isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array(),
+
+            $params = array_merge(
+                $app[$prefix.'.server'],
+                array(
+                    'options' => isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array(),
+                )
             );
-
-
-            $params = array_merge($server, $options);
 
             $cfg = $factory->createConfig($params['driver']);
 
@@ -63,6 +64,10 @@ class PDOServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $prefix = $this->prefix;
+
+        $app[$prefix.'.server'] = array();
+        $app[$prefix.'.options'] = array();
+
         $app[$prefix] = $this->getPdo($app, $prefix);
     }
 

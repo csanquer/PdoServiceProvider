@@ -52,6 +52,8 @@ $app->register(
             'user'     => 'ger',
             'password' => 'GER',
         ),
+        // optional PDO options used in PDO constructor 4th argument driver_options
+        // see http://www.php.net/manual/fr/pdo.construct.php
         'pdo.options' => array(
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
         ),
@@ -85,7 +87,8 @@ $app->register(
             'password' => 'password',
         ),
         'pdo.db1.options' => array(
-            // optional PDO options
+            // optional PDO options used in PDO constructor 4th argument driver_options
+            // see http://www.php.net/manual/fr/pdo.construct.php
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
         ),
     )
