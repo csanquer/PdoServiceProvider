@@ -27,9 +27,9 @@ class PdoConfigFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateConfig($params, $expected)
     {
-        $this->assertInstanceOf($expected, $this->factory->createConfig($params));
+        $this->assertInstanceOf($expected, $this->factory->createConfig($params['driver']));
     }
-    
+
     public function dataProviderCreateConfig()
     {
         return array(

@@ -15,9 +15,8 @@ class PdoConfigFactory
      *
      * @return PdoConfigInterface
      */
-    public function createConfig(array $params)
+    public function createConfig($driver)
     {
-        $driver = isset($params['driver']) ? $params['driver'] : null;
         switch ($driver) {
             case 'pgsql':
             case 'postgre':

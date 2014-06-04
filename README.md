@@ -43,18 +43,17 @@ $app->register(
     // you can customize services and options prefix with the provider first argument (default = 'pdo')
     new PdoServiceProvider('pdo'),
     array(
-        'pdo.options' => array(
+        'pdo.server'   => array(
             // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
-            'driver' => 'mysql',
-            'host' => '127.0.0.1',
-            'dbname' => 'db1',
-            'port' => '3306', 
-            'username' => 'username',
-            'password' => 'password',
-            // optional PDO options
-            'options' => array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
-            ),
+            'driver'   => 'mysql',
+            'host'     => 'mysql',
+            'dbname'   => 'rfactori',
+            'port'     => 3306,
+            'user'     => 'ger',
+            'password' => 'GER',
+        ),
+        'pdo.options' => array(
+            \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
         ),
     )
 );
@@ -76,18 +75,18 @@ $app->register(
     new PdoServiceProvider('pdo.db1'),
     array(
         // use previous custom prefix pdo.db1
-        'pdo.db1.options' => array(
+        'pdo.db1.server' => array(
             // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
-            'driver' => 'mysql',
-            'host' => '127.0.0.1',
-            'dbname' => 'db1',
-            'port' => '3306', 
-            'username' => 'username',
+            'driver'   => 'mysql',
+            'host'     => '127.0.0.1',
+            'dbname'   => 'db1',
+            'port'     => 3306,
+            'user'     => 'username',
             'password' => 'password',
+        ),
+        'pdo.db1.options' => array(
             // optional PDO options
-            'options' => array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
-            ),
+            \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
         ),
     )
 );
@@ -96,12 +95,11 @@ $app->register(
     // second PDO connection
     new PdoServiceProvider('pdo.db2'),
     array(
+        'pdo.db2.server' => array(
+            'driver' => 'sqlite',
+            'path' => 'var/db/db2.sqlite',
+        ),
         'pdo.db2.options' => array(
-                'driver' => 'sqlite',
-                'path' => 'var/db/db2.sqlite',
-                'options' => array(
-                ),
-            ),
         ),
     )
 );
