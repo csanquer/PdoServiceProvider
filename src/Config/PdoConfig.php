@@ -133,7 +133,7 @@ abstract class PdoConfig implements PdoConfigInterface
         $preparedParams = array();
 
         if (isset($params['options'])) {
-            $preparedParams['options'] = (array) $params['options'];
+            $preparedParams['options'] = $params['options'];
             unset($params['options']);
         }
 
@@ -164,9 +164,9 @@ abstract class PdoConfig implements PdoConfigInterface
 
         return new \PDO(
             $params['dsn'],
-            isset($params['user']) ? $params['user'] : null,
-            isset($params['password']) ? $params['password'] : null,
-            isset($params['options']) ? $params['options'] : array()
+            isset($params['user']) ? (string) $params['user'] : null,
+            isset($params['password']) ? (string) $params['password'] : null,
+            isset($params['options']) ? (array) $params['options'] : array()
         );
     }
 }
