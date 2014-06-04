@@ -41,18 +41,22 @@ class PDOServiceProvider implements ServiceProviderInterface
         return $app->share(function() use ($app, $prefix) {
             $factory = new PdoConfigFactory();
 
-            $options = array_replace(
+            $server  = array_replace(
                 array(
                     'driver' => 'sqlite',
-                    'options' => array(),
                 ),
-                isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array()
+                isset($app[$prefix.'.server']) ? (array) $app[$prefix.'.server'] : array()
             );
-            $app[$prefix.'.options'] = $options;
+            $options = array(
+                'options' => isset($app[$prefix.'.options']) ? (array) $app[$prefix.'.options'] : array(),
+            );
 
-            $cfg = $factory->createConfig($options);
 
-            return $cfg->connect($options);
+            $params = array_merge($server, $options);
+
+            $cfg = $factory->createConfig($params['driver']);
+
+            return $cfg->connect($params);
         });
     }
 
