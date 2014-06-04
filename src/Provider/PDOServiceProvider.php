@@ -38,7 +38,7 @@ class PDOServiceProvider implements ServiceProviderInterface
      */
     protected function getPdo(Application $app, $prefix)
     {
-        return $app->share(function() use ($app, $prefix) {
+        return $app->share(function () use ($app, $prefix) {
             $factory = new PdoConfigFactory();
 
             $options = array_replace(
