@@ -64,6 +64,10 @@ class PDOServiceProvider implements ServiceProviderInterface
         });
     }
 
+    /**
+     * @param Application $app
+     *
+     */
     public function register(Application $app)
     {
         $prefix = $this->prefix;
@@ -75,8 +79,11 @@ class PDOServiceProvider implements ServiceProviderInterface
         $app[$prefix] = $this->getPdo($app, $prefix);
     }
 
+    /**
+     * @param Application $app
+     * @codeCoverageIgnore
+     */
     public function boot(Application $app)
     {
-
     }
 }
