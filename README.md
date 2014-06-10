@@ -21,7 +21,7 @@ a Simple PDO service provider for Silex
 Installation
 ------------
 
-add this package to Composer dependencies configuration:
+add this package to [Composer](https://getcomposer.org/) dependencies configuration:
 
 ```sh
 php composer.phar require "csanquer/pdo-silex-provider=~0.4"
