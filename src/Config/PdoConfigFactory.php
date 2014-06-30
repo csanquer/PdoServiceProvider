@@ -27,6 +27,9 @@ class PdoConfigFactory
             case 'oracle':
                 $cfg = new OracleConfig();
                 break;
+            case 'dblib':
+                $cfg = new DBlibConfig();
+                break;
             case 'sqlsrv':
             case 'sqlserver':
             case 'mssqlserver':

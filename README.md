@@ -44,7 +44,7 @@ $app->register(
     new PdoServiceProvider('pdo'),
     array(
         'pdo.server'   => array(
-            // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
+            // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite, dblib
             'driver'   => 'mysql',
             'host'     => 'mysql',
             'dbname'   => 'rfactori',
@@ -84,7 +84,7 @@ $app->register(
     array(
         // use previous custom prefix pdo.db1
         'pdo.db1.server' => array(
-            // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite
+            // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite, dblib
             'driver'   => 'mysql',
             'host'     => '127.0.0.1',
             'dbname'   => 'db1',
