@@ -105,6 +105,12 @@ class PdoConfigFactoryTest extends \PHPUnit_Framework_TestCase
                 ),
                 '\CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
             ),
+            array(
+                array(
+                    'driver' => 'dblib',
+                ),
+                '\CSanquer\Silex\PdoServiceProvider\Config\DBlibConfig',
+            ),
         );
     }
 }
