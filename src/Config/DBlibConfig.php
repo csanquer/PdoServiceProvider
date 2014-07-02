@@ -31,10 +31,10 @@ class DBlibConfig extends PdoConfig
     {
         $params = parent::resolve($params);
 
-        if (is_null($params['MultipleActiveResultSets'])){
+        if (is_null($params['MultipleActiveResultSets'])) {
             unset($params['MultipleActiveResultSets']);
         }
-        
+
         return $params;
     }
 }
