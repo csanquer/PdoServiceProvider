@@ -9,13 +9,11 @@ _darcs
 .monotone
 .svn
 _svn
-.DS_Store
 __MACOSX
 .settings
 .buildpath
 .project
 .cache
-nbproject
 .netbeans
 catalog.xml
 *.psd

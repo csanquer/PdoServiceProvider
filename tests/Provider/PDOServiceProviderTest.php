@@ -40,7 +40,7 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedOptions, $app[$prefix.'.options']);
         $this->assertEquals($expectedAttributes, $app[$prefix.'.attributes']);
     }
-    
+
     public function providerConnection() 
     {
         return array(
