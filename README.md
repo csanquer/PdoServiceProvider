@@ -4,8 +4,10 @@ PdoServiceProvider
 [![Latest Stable Version](https://poser.pugx.org/csanquer/pdo-service-provider/v/stable.svg)](https://packagist.org/packages/csanquer/pdo-service-provider)
 [![Latest Unstable Version](https://poser.pugx.org/csanquer/pdo-service-provider/v/unstable.svg)](https://packagist.org/packages/csanquer/pdo-service-provider)
 [![Build Status](https://travis-ci.org/csanquer/PdoServiceProvider.png?branch=master)](https://travis-ci.org/csanquer/PdoServiceProvider)
+
 [![Code Coverage](https://scrutinizer-ci.com/g/csanquer/PdoServiceProvider/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/csanquer/PdoServiceProvider/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/csanquer/PdoServiceProvider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/csanquer/PdoServiceProvider/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7feeab74-76c0-4404-b9d8-009d07c0f652/mini.png)](https://insight.sensiolabs.com/projects/7feeab74-76c0-4404-b9d8-009d07c0f652)
 
 [![Dependency Status](https://www.versioneye.com/user/projects/52fa225bec137599bb000033/badge.svg)](https://www.versioneye.com/user/projects/52fa225bec137599bb000033)
 [![Project Status](http://stillmaintained.com/csanquer/PdoServiceProvider.png)](http://stillmaintained.com/csanquer/PdoServiceProvider)
