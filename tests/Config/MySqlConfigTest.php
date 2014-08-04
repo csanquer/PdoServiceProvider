@@ -30,7 +30,7 @@ class MySqlConfigTest extends \PHPUnit_Framework_TestCase
         $result = $this->pdoConfig->prepareParameters($params);
         $this->assertEquals($expected, $result);
     }
-    
+
     public function dataProviderPrepareParameters()
     {
         return array(

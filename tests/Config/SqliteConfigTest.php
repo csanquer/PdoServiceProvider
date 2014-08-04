@@ -30,7 +30,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
         $result = $this->pdoConfig->prepareParameters($params);
         $this->assertEquals($expected, $result);
     }
-    
+
     public function dataProviderPrepareParameters()
     {
         return array(
@@ -65,7 +65,7 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
             ),
         );
     }
-    
+
     /**
      * @dataProvider dataProviderConnect
      */
@@ -74,11 +74,11 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
         if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
             $this->markTestSkipped('pdo_sqlite is not available');
         }
-        
+
         $pdo = $this->pdoConfig->connect($params);
         $this->assertInstanceOf('\PDO', $pdo);
     }
-    
+
     public function dataProviderConnect()
     {
         return array(
@@ -88,5 +88,5 @@ class SqliteConfigTest extends \PHPUnit_Framework_TestCase
             ),
         );
     }
-                
+
 }

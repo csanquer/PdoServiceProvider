@@ -5,7 +5,6 @@ namespace Csanquer\Silex\PdoServiceProvider\Tests\Config;
 use \Silex\Application;
 use \Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider;
 
-
 /**
  * Unit tests for PDOServiceProvider
  *
@@ -41,7 +40,7 @@ class PDOServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedAttributes, $app[$prefix.'.attributes']);
     }
 
-    public function providerConnection() 
+    public function providerConnection()
     {
         return array(
             array(
