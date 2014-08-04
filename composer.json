@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CSanquer\\Silex\\PdoServiceProvider\\": "src/"
+            "Csanquer\\Silex\\PdoServiceProvider\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CSanquer\\Silex\\PdoServiceProvider\\Tests\\": "tests/"
+            "Csanquer\\Silex\\PdoServiceProvider\\Tests\\": "tests/"
         }
     },
     "extra": {

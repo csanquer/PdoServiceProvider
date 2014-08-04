@@ -1,6 +1,6 @@
 <?php
 
-namespace CSanquer\Silex\PdoServiceProvider\Config;
+namespace Csanquer\Silex\PdoServiceProvider\Config;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

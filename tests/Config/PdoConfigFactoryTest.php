@@ -1,8 +1,8 @@
 <?php
 
-namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
+namespace Csanquer\Silex\PdoServiceProvider\Tests\Config;
 
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory;
+use Csanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory;
 
 /**
  * TestCase for PdoConfigFactoryTest
@@ -37,79 +37,79 @@ class PdoConfigFactoryTest extends \PHPUnit_Framework_TestCase
                 array(
                     'driver' => '',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqliteConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqliteConfig',
             ),
             array(
                 array(
                     'driver' => 'sqlite',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqliteConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqliteConfig',
             ),
             array(
                 array(
                     'driver' => 'mysql',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\MySqlConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\MySqlConfig',
             ),
             array(
                 array(
                     'driver' => 'pgsql',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
             ),
             array(
                 array(
                     'driver' => 'postgre',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
             ),
             array(
                 array(
                     'driver' => 'postgresql',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\PgSqlConfig',
             ),
             array(
                 array(
                     'driver' => 'oci',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\OracleConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\OracleConfig',
             ),
             array(
                 array(
                     'driver' => 'oracle',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\OracleConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\OracleConfig',
             ),
             array(
                 array(
                     'driver' => 'sqlsrv',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
             ),
             array(
                 array(
                     'driver' => 'sqlserver',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
             ),
             array(
                 array(
                     'driver' => 'mssqlserver',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
             ),
             array(
                 array(
                     'driver' => 'mssql',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig',
             ),
             array(
                 array(
                     'driver' => 'dblib',
                 ),
-                '\CSanquer\Silex\PdoServiceProvider\Config\DBlibConfig',
+                '\Csanquer\Silex\PdoServiceProvider\Config\DBlibConfig',
             ),
         );
     }

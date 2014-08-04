@@ -35,7 +35,7 @@ Usage
 use the `PdoServiceProvider` silex provider :
 
 ```php
-use CSanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
+use Csanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
 use Silex\Application;
 
 $app = new Application();
@@ -73,7 +73,7 @@ $pdo = $app['pdo'];
 * Configure several databases
 
 ```php
-use CSanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
+use Csanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
 use Silex\Application;
 
 $app = new Application();

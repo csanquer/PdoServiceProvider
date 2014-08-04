@@ -1,8 +1,8 @@
 <?php
 
-namespace CSanquer\Silex\PdoServiceProvider\Provider;
+namespace Csanquer\Silex\PdoServiceProvider\Provider;
 
-use CSanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory;
+use Csanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 

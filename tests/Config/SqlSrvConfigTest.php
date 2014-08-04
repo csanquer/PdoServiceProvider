@@ -1,8 +1,8 @@
 <?php
 
-namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
+namespace Csanquer\Silex\PdoServiceProvider\Tests\Config;
 
-use CSanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig;
+use Csanquer\Silex\PdoServiceProvider\Config\SqlSrvConfig;
 
 /**
  * TestCase for SqlSrvConfig

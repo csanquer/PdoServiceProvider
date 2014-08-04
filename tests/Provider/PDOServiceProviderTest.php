@@ -1,9 +1,9 @@
 <?php
 
-namespace CSanquer\Silex\PdoServiceProvider\Tests\Config;
+namespace Csanquer\Silex\PdoServiceProvider\Tests\Config;
 
 use \Silex\Application;
-use \CSanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider;
+use \Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider;
 
 
 /**
