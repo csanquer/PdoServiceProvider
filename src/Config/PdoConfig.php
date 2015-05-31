@@ -15,7 +15,7 @@ abstract class PdoConfig implements PdoConfigInterface
 {
     /**
      *
-     * @var Symfony\Component\OptionsResolver\OptionsResolver
+     * @var OptionsResolver
      */
     protected $resolver;
 
@@ -91,9 +91,15 @@ abstract class PdoConfig implements PdoConfigInterface
         $this->resolver = new OptionsResolver();
         $this->resolver
             ->setRequired($this->required)
-            ->setDefaults($this->defaults)
-            ->setAllowedValues($this->allowedValues)
-            ->setAllowedTypes($this->allowedTypes);
+            ->setDefaults($this->defaults);
+
+        foreach($this->allowedValues as $option => $value) {
+            $this->resolver->setAllowedValues($option, $value);
+        }
+
+        foreach($this->allowedTypes as $option => $value) {
+            $this->resolver->setAllowedTypes($option, $value);
+        }
     }
 
     /**
