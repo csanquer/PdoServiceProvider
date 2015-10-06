@@ -24,7 +24,7 @@ Installation
 add this package to [Composer](https://getcomposer.org/) dependencies configuration:
 
 ```sh
-php composer.phar require "csanquer/pdo-silex-provider=~0.5"
+php composer.phar require "csanquer/pdo-silex-provider=~1.0"
 ```
 
 Usage
