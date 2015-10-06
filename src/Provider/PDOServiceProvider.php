@@ -3,8 +3,8 @@
 namespace Csanquer\Silex\PdoServiceProvider\Provider;
 
 use Csanquer\Silex\PdoServiceProvider\Config\PdoConfigFactory;
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 /**
  * Database PDO Provider.
@@ -31,14 +31,14 @@ class PDOServiceProvider implements ServiceProviderInterface
     }
 
     /**
-     * @param Application $app
+     * @param Container $app
      * @param string      $prefix
      *
      * @return \PDO
      */
-    protected function getPdo(Application $app, $prefix)
+    protected function getPdo(Container $app, $prefix)
     {
-        return $app->share(function () use ($app, $prefix) {
+        return function () use ($app, $prefix) {
             $factory = new PdoConfigFactory();
 
             $app[$prefix.'.server']  = array_merge(
@@ -61,14 +61,14 @@ class PDOServiceProvider implements ServiceProviderInterface
             $cfg = $factory->createConfig($params['driver']);
 
             return $cfg->connect($params);
-        });
+        };
     }
 
     /**
-     * @param Application $app
+     * @param Container $app
      *
      */
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $prefix = $this->prefix;
 
@@ -77,13 +77,5 @@ class PDOServiceProvider implements ServiceProviderInterface
         $app[$prefix.'.attributes'] = array();
 
         $app[$prefix] = $this->getPdo($app, $prefix);
-    }
-
-    /**
-     * @param Application $app
-     * @codeCoverageIgnore
-     */
-    public function boot(Application $app)
-    {
     }
 }
