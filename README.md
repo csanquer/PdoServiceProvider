@@ -24,7 +24,7 @@ Installation
 add this package to [Composer](https://getcomposer.org/) dependencies configuration:
 
 ```sh
-php composer.phar require "csanquer/pdo-silex-provider=~1.0"
+php composer.phar require "csanquer/pdo-service-provider=~1.0"
 ```
 
 Usage
@@ -35,13 +35,13 @@ Usage
 use the `PdoServiceProvider` silex provider :
 
 ```php
-use Csanquer\Silex\PdoServiceProvider\Provider\PdoServiceProvider;
+use Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider;
 use Silex\Application;
 
 $app = new Application();
 $app->register(
     // you can customize services and options prefix with the provider first argument (default = 'pdo')
-    new PdoServiceProvider('pdo'),
+    new PDOServiceProvider('pdo'),
     array(
         'pdo.server'   => array(
             // PDO driver to use among : mysql, pgsql , oracle, mssql, sqlite, dblib
