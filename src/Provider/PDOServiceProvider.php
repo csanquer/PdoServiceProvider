@@ -72,9 +72,11 @@ class PDOServiceProvider implements ServiceProviderInterface
     {
         $prefix = $this->prefix;
 
-        $app[$prefix.'.server'] = array();
-        $app[$prefix.'.options'] = array();
-        $app[$prefix.'.attributes'] = array();
+        foreach(array('.server', '.options', '.attributes') as $key) {
+            if (!(isset($app[$prefix . $key]))) {
+                $app[$prefix. $key] = array();
+            }
+        }
 
         $app[$prefix] = $this->getPdo($app, $prefix);
     }
